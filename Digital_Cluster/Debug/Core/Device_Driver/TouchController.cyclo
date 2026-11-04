@@ -1,0 +1,3 @@
+../Core/Device_Driver/TouchController.c:38:6:lv_port_indev_init	1
+../Core/Device_Driver/TouchController.c:57:13:touchpad_init	1
+../Core/Device_Driver/TouchController.c:74:13:touchpad_read	3

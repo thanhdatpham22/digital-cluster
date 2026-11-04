@@ -1,0 +1,4 @@
+../Core/Device_Driver/L3GD20/gyro.c:16:6:GYRO_IO_Init	8	static
+../Core/Device_Driver/L3GD20/gyro.c:21:6:GYRO_IO_DeInit	4	static
+../Core/Device_Driver/L3GD20/gyro.c:24:6:GYRO_IO_Read	56	static
+../Core/Device_Driver/L3GD20/gyro.c:49:6:GYRO_IO_Write	56	static

@@ -1,0 +1,13 @@
+../Core/Device_Driver/L3GD20/l3gd20.c:100:6:L3GD20_Init	24	static
+../Core/Device_Driver/L3GD20/l3gd20.c:131:6:L3GD20_DeInit	4	static
+../Core/Device_Driver/L3GD20/l3gd20.c:140:9:L3GD20_ReadID	16	static
+../Core/Device_Driver/L3GD20/l3gd20.c:154:9:L3GD20_ReadTemp	16	static
+../Core/Device_Driver/L3GD20/l3gd20.c:167:6:L3GD20_RebootCmd	16	static
+../Core/Device_Driver/L3GD20/l3gd20.c:186:6:L3GD20_LowPower	24	static
+../Core/Device_Driver/L3GD20/l3gd20.c:200:6:L3GD20_INT1InterruptConfig	24	static
+../Core/Device_Driver/L3GD20/l3gd20.c:231:6:L3GD20_EnableIT	24	static
+../Core/Device_Driver/L3GD20/l3gd20.c:261:6:L3GD20_DisableIT	24	static
+../Core/Device_Driver/L3GD20/l3gd20.c:288:6:L3GD20_FilterConfig	24	static
+../Core/Device_Driver/L3GD20/l3gd20.c:314:6:L3GD20_FilterCmd	24	static
+../Core/Device_Driver/L3GD20/l3gd20.c:334:9:L3GD20_GetDataStatus	16	static
+../Core/Device_Driver/L3GD20/l3gd20.c:349:6:L3GD20_ReadXYZAngRate	48	static

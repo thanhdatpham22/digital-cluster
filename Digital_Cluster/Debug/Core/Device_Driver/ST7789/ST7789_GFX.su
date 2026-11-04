@@ -1,0 +1,7 @@
+../Core/Device_Driver/ST7789/ST7789_GFX.c:18:6:ST7789_DrawHollowCircle	48	static
+../Core/Device_Driver/ST7789/ST7789_GFX.c:53:6:ST7789_DrawFilledCircle	56	static
+../Core/Device_Driver/ST7789/ST7789_GFX.c:88:6:ST7789_DrawHollowRectangleCoord	32	static
+../Core/Device_Driver/ST7789/ST7789_GFX.c:101:6:ST7789_DrawFilledRectangleCoord	40	static
+../Core/Device_Driver/ST7789/ST7789_GFX.c:111:6:ST7789_DrawChar	64	static
+../Core/Device_Driver/ST7789/ST7789_GFX.c:142:6:ST7789_DrawText	48	static
+../Core/Device_Driver/ST7789/ST7789_GFX.c:168:6:ST7789_DrawImage	32	static

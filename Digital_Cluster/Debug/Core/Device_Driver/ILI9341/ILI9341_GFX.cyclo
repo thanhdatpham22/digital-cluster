@@ -1,0 +1,8 @@
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:6:22:DelayUs	2
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:12:6:ILI9341_DrawHollowCircle	4
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:47:6:ILI9341_DrawFilledCircle	5
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:83:6:ILI9341_DrawHollowRectangleCoord	7
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:129:6:ILI9341_DrawFilledRectangleCoord	5
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:171:6:ILI9341_DrawChar	6
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:202:6:ILI9341_DrawText	3
+../Core/Device_Driver/ILI9341/ILI9341_GFX.c:230:6:ILI9341_DrawImage	6

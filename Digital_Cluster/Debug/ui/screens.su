@@ -1,0 +1,8 @@
+../Middlewares/Third_Party/lvgl/src/hal/../draw/../misc/lv_color.h:599:26:lv_color_hex	24	static
+C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.c:30:13:switch_led_event_cb	32	static
+C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.c:46:13:switch_led2_event_cb	32	static
+C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.c:62:6:create_screen_main	88	static
+C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.c:176:6:tick_screen_main	16	static
+C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.c:185:6:tick_screen	16	static
+C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.c:190:6:tick_screen_by_id	16	static
+C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.c:274:6:create_screens	32	static
