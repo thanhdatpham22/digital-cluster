@@ -21,6 +21,7 @@ Core/Device_Driver/ST7789/ST7789_GFX.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -34,7 +35,7 @@ Core/Device_Driver/ST7789/ST7789_GFX.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/../Device_Driver/ST7789/ST7789_GFX.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/fonts.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h \
  ../Middlewares/Third_Party/lvgl/lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h \
  ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h \
@@ -282,6 +283,7 @@ Core/Device_Driver/ST7789/ST7789_GFX.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
@@ -295,7 +297,7 @@ Core/Device_Driver/ST7789/ST7789_GFX.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/../Device_Driver/ST7789/ST7789_GFX.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/fonts.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h:
 ../Middlewares/Third_Party/lvgl/lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h:
 ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h:

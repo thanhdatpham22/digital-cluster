@@ -14,10 +14,11 @@ GPIO_TypeDef* ts_Penirq_Port;
 uint16_t ts_Cs_Pin;
 uint16_t ts_Penirq_Pin;
 uint8_t command;
+
 void xpt2046_init()
 {
 	ts_ControlByte.bitMode = XPT2046_12BIT_MODE;
-	ts_ControlByte.powerMode = XPT2046_POWER_DOWN;
+	ts_ControlByte.powerMode = XPT2046_REFERENCE_OFF_ADC_ON;
 	ts_ControlByte.reference = XPT2046_DFR_MODE;
 	ts_ControlByte.channel = XPT2046_DFR_X; //by default
 	ts_ControlByte.startBit = XPT2046_START;

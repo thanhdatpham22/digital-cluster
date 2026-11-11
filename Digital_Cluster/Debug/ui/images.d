@@ -1,6 +1,6 @@
 ui/images.o: \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/images.c \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/images.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/images.c \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/images.h \
  ../Middlewares/Third_Party/lvgl/lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h \
  ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h \
@@ -227,7 +227,7 @@ ui/images.o: \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/images.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/images.h:
 ../Middlewares/Third_Party/lvgl/lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h:
 ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h:

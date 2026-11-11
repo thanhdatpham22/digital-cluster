@@ -73,9 +73,17 @@ RM := rm -rf
 -include Core/Src/subdir.mk
 -include Core/Device_Driver/XPT2046/subdir.mk
 -include Core/Device_Driver/ST7789/subdir.mk
+-include Core/Device_Driver/RTC/subdir.mk
 -include Core/Device_Driver/L3GD20/subdir.mk
 -include Core/Device_Driver/ILI9341/subdir.mk
+-include Core/Device_Driver/CAN_TJA1050/config/subdir.mk
+-include Core/Device_Driver/CAN_TJA1050/UDS_Protocol/subdir.mk
+-include Core/Device_Driver/CAN_TJA1050/Det/subdir.mk
+-include Core/Device_Driver/CAN_TJA1050/CanIf/subdir.mk
+-include Core/Device_Driver/CAN_TJA1050/Can/subdir.mk
+-include Core/Device_Driver/CAN_TJA1050/subdir.mk
 -include Core/Device_Driver/subdir.mk
+-include Core/App/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -124,8 +132,8 @@ all: main-build
 main-build: Digital_Cluster.elf secondary-outputs
 
 # Tool invocations
-Digital_Cluster.elf Digital_Cluster.map: $(OBJS) $(USER_OBJS) C:\Users\admin\STM32CubeIDE\workspace_1.16.0\Digital_Cluster\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Digital_Cluster.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\admin\STM32CubeIDE\workspace_1.16.0\Digital_Cluster\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Digital_Cluster.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Digital_Cluster.elf Digital_Cluster.map: $(OBJS) $(USER_OBJS) E:\Personal_Documents\digital-cluster\Digital_Cluster\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Digital_Cluster.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\Personal_Documents\digital-cluster\Digital_Cluster\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Digital_Cluster.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -118,7 +118,7 @@ void L3GD20_Init(uint16_t InitStruct)
   GYRO_IO_Read(&check_ctrl1, 0x20, 1);
   GYRO_IO_Read(&check_status, 0x27, 1);
 
-  printf("CTRL_REG1: 0x%02X | STATUS: 0x%02X\r\n", check_ctrl1, check_status);
+//  printf("CTRL_REG1: 0x%02X | STATUS: 0x%02X\r\n", check_ctrl1, check_status);
 }
 
 

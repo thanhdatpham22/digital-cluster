@@ -1,4 +1,8 @@
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.c:11:18:getLvglObjectFromIndex	16	static
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.c:18:6:loadScreen	32	static
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.c:24:6:ui_init	8	static
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.c:30:6:ui_tick	8	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:11:18:getLvglObjectFromIndex	16	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:18:6:loadScreen	16	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:22:6:loadScreenAnim	32	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:33:6:cluster_switch_next	16	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:41:6:cluster_switch_prev	16	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:50:18:cluster_get_current_screen	4	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:54:6:ui_init	8	static
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.c:59:6:ui_tick	8	static

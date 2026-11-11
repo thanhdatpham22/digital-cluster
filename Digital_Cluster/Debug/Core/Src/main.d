@@ -19,6 +19,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -42,7 +43,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/images.h \
+ ../Core/Src/../Device_Driver/lvgl_port_disp.h \
+ ../Core/Src/../Device_Driver/ST7789/ST7789_GFX.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h \
  ../Middlewares/Third_Party/lvgl/lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h \
  ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h \
@@ -269,15 +272,31 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.h \
- ../Core/Src/../Device_Driver/lvgl_port_disp.h \
- ../Core/Src/../Device_Driver/ST7789/ST7789_GFX.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/fonts.h \
  ../Core/Src/../Device_Driver/ST7789/ST7789_STM32_Driver.h \
- ../Core/Src/../Device_Driver/TouchController.h \
- ../Core/Src/../Device_Driver/L3GD20/l3gd20.h \
- ../Core/Src/../Device_Driver/L3GD20/gyro.h
+ ../Core/Src/../App/Handler_task.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h \
+ ../Core/Src/../App/display_task.h ../Core/Src/../App/Handler_task.h \
+ ../Core/Src/../App/../Device_Driver/lvgl_port_disp.h \
+ ../Core/Src/../App/../Device_Driver/TouchController.h \
+ ../Core/Src/../App/../Device_Driver/ST7789/ST7789_GFX.h \
+ ../Core/Src/../App/../Device_Driver/ST7789/ST7789_STM32_Driver.h \
+ ../Core/Src/../App/can_task.h \
+ ../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/ComStack_Types.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Std_Types.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Platform_Types.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler_Cfg.h \
+ ../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/config/Can_Cfg.h \
+ ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h \
+ ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Types.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h \
+ ../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can.h \
+ ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_SpecialPdus.h \
+ ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -299,6 +318,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
@@ -322,7 +342,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/images.h:
+../Core/Src/../Device_Driver/lvgl_port_disp.h:
+../Core/Src/../Device_Driver/ST7789/ST7789_GFX.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h:
 ../Middlewares/Third_Party/lvgl/lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h:
 ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h:
@@ -549,12 +571,29 @@ C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h:
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.h:
-../Core/Src/../Device_Driver/lvgl_port_disp.h:
-../Core/Src/../Device_Driver/ST7789/ST7789_GFX.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/fonts.h:
 ../Core/Src/../Device_Driver/ST7789/ST7789_STM32_Driver.h:
-../Core/Src/../Device_Driver/TouchController.h:
-../Core/Src/../Device_Driver/L3GD20/l3gd20.h:
-../Core/Src/../Device_Driver/L3GD20/gyro.h:
+../Core/Src/../App/Handler_task.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h:
+../Core/Src/../App/display_task.h:
+../Core/Src/../App/Handler_task.h:
+../Core/Src/../App/../Device_Driver/lvgl_port_disp.h:
+../Core/Src/../App/../Device_Driver/TouchController.h:
+../Core/Src/../App/../Device_Driver/ST7789/ST7789_GFX.h:
+../Core/Src/../App/../Device_Driver/ST7789/ST7789_STM32_Driver.h:
+../Core/Src/../App/can_task.h:
+../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/shared/ComStack_Types.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Std_Types.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Platform_Types.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler_Cfg.h:
+../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/config/Can_Cfg.h:
+../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h:
+../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Types.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h:
+../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can.h:
+../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_SpecialPdus.h:
+../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h:

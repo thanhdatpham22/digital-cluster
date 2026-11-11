@@ -227,7 +227,8 @@ Core/Device_Driver/TouchController.o: \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h \
- ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ ../Core/Device_Driver/ST7789/ST7789_STM32_Driver.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -247,6 +248,7 @@ Core/Device_Driver/TouchController.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -259,8 +261,7 @@ Core/Device_Driver/TouchController.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Device_Driver/ST7789/ST7789_STM32_Driver.h \
- ../Core/Device_Driver/XPT2046/xpt2046.h
+ ../Core/Device_Driver/XPT2046/xpt2046.h ../Core/Inc/main.h
 ../Core/Device_Driver/../Device_Driver/TouchController.h:
 ../Middlewares/Third_Party/lvgl/lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h:
@@ -488,7 +489,7 @@ Core/Device_Driver/TouchController.o: \
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h:
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h:
-../Core/Inc/main.h:
+../Core/Device_Driver/ST7789/ST7789_STM32_Driver.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -509,6 +510,7 @@ Core/Device_Driver/TouchController.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
@@ -521,5 +523,5 @@ Core/Device_Driver/TouchController.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-../Core/Device_Driver/ST7789/ST7789_STM32_Driver.h:
 ../Core/Device_Driver/XPT2046/xpt2046.h:
+../Core/Inc/main.h:

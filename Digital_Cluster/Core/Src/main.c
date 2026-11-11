@@ -22,17 +22,17 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "images.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include "lvgl.h"
-#include "ui.h"
 
 #include "../Device_Driver/lvgl_port_disp.h"
 #include "../Device_Driver/ST7789/ST7789_GFX.h"
 #include "../Device_Driver/ST7789/ST7789_STM32_Driver.h"
-#include "../Device_Driver/TouchController.h"
-#include "../Device_Driver/L3GD20/l3gd20.h"
+#include "../App/Handler_task.h"
+#include "ui.h"
+#include "task.h"
+#include <stdio.h>
+#include "../App/display_task.h"
+#include "../App/can_task.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +51,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+CAN_HandleTypeDef hcan1;
+
 RNG_HandleTypeDef hrng;
 
 RTC_HandleTypeDef hrtc;
@@ -66,8 +68,36 @@ UART_HandleTypeDef huart1;
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for cantask */
+osThreadId_t cantaskHandle;
+const osThreadAttr_t cantask_attributes = {
+  .name = "cantask",
+  .stack_size = 1024 * 4,
+  .priority = (osPriority_t) osPriorityRealtime,
+};
+/* Definitions for displaytask */
+osThreadId_t displaytaskHandle;
+const osThreadAttr_t displaytask_attributes = {
+  .name = "displaytask",
+  .stack_size = 1024 * 4,
+  .priority = (osPriority_t) osPriorityHigh,
+};
+/* Definitions for logtask */
+osThreadId_t logtaskHandle;
+const osThreadAttr_t logtask_attributes = {
+  .name = "logtask",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityLow1,
+};
+/* Definitions for commontask */
+osThreadId_t commontaskHandle;
+const osThreadAttr_t commontask_attributes = {
+  .name = "commontask",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityLow2,
 };
 /* USER CODE BEGIN PV */
 
@@ -83,7 +113,12 @@ static void MX_RTC_Init(void);
 static void MX_RNG_Init(void);
 static void MX_SPI3_Init(void);
 static void MX_SPI5_Init(void);
+static void MX_CAN1_Init(void);
 void StartDefaultTask(void *argument);
+extern void Can_Handler(void *argument);
+extern void Display_Handler(void *argument);
+extern void Log_Handler(void *argument);
+extern void Common_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -91,7 +126,18 @@ void StartDefaultTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-CCMRAM_BSS uint8_t fast_math_buffer[32 * 1024];
+
+void PrintTaskMemoryUsage(void)
+{
+    // Cấp một buffer đủ lớn để chứa chuỗi text bảng thống kê
+    char statsBuffer[512];
+    vTaskList(statsBuffer);
+
+    printf("\r\n--- TASK MEMORY USAGE ---\r\n");
+    printf("Name\t\tState\tPrio\tStackRemaining\tNum\r\n");
+    printf("--------------------------------------------------\r\n");
+    printf("%s\r\n", statsBuffer);
+}
 /* USER CODE END 0 */
 
 /**
@@ -129,12 +175,8 @@ int main(void)
   MX_RNG_Init();
   MX_SPI3_Init();
   MX_SPI5_Init();
+  MX_CAN1_Init();
   /* USER CODE BEGIN 2 */
-  ST7789_Init();
-//  fast_math_buffer[0] = 0xAA;
-//  HAL_Delay(3000);
-
-  // ST7789_SetRotation(SCREEN_HORIZONTAL_2);
 
   /* USER CODE END 2 */
 
@@ -160,6 +202,18 @@ int main(void)
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* creation of cantask */
+  cantaskHandle = osThreadNew(Can_Handler, NULL, &cantask_attributes);
+
+  /* creation of displaytask */
+  displaytaskHandle = osThreadNew(Display_Handler, NULL, &displaytask_attributes);
+
+  /* creation of logtask */
+  logtaskHandle = osThreadNew(Log_Handler, NULL, &logtask_attributes);
+
+  /* creation of commontask */
+  commontaskHandle = osThreadNew(Common_Task, NULL, &commontask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -239,6 +293,43 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief CAN1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_CAN1_Init(void)
+{
+
+  /* USER CODE BEGIN CAN1_Init 0 */
+
+  /* USER CODE END CAN1_Init 0 */
+
+  /* USER CODE BEGIN CAN1_Init 1 */
+
+  /* USER CODE END CAN1_Init 1 */
+  hcan1.Instance = CAN1;
+  hcan1.Init.Prescaler = 15;
+  hcan1.Init.Mode = CAN_MODE_NORMAL;
+  hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
+  hcan1.Init.TimeSeg1 = CAN_BS1_2TQ;
+  hcan1.Init.TimeSeg2 = CAN_BS2_3TQ;
+  hcan1.Init.TimeTriggeredMode = DISABLE;
+  hcan1.Init.AutoBusOff = DISABLE;
+  hcan1.Init.AutoWakeUp = DISABLE;
+  hcan1.Init.AutoRetransmission = DISABLE;
+  hcan1.Init.ReceiveFifoLocked = DISABLE;
+  hcan1.Init.TransmitFifoPriority = DISABLE;
+  if (HAL_CAN_Init(&hcan1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN CAN1_Init 2 */
+
+  /* USER CODE END CAN1_Init 2 */
+
 }
 
 /**
@@ -513,7 +604,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(L3DG20_CS_GPIO_Port, L3DG20_CS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, L3DG20_CS_Pin|GPIO_PIN_2, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, DC_Pin|RESET_Pin|CS_Pin, GPIO_PIN_RESET);
@@ -524,12 +615,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, LED_GREEN_Pin|LED_RED_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : L3DG20_CS_Pin */
-  GPIO_InitStruct.Pin = L3DG20_CS_Pin;
+  /*Configure GPIO pins : L3DG20_CS_Pin PC2 */
+  GPIO_InitStruct.Pin = L3DG20_CS_Pin|GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(L3DG20_CS_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : DC_Pin RESET_Pin CS_Pin */
   GPIO_InitStruct.Pin = DC_Pin|RESET_Pin|CS_Pin;
@@ -567,82 +658,7 @@ int __io_putchar(int ch) {
   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 1000);
   return ch;
 }
-extern screen_main_state_t screen_main_state;
-extern lv_obj_t * my_meter_obj;
-static void temp_meter_update_cb(lv_timer_t * timer)
-{
-    if (my_meter_obj == NULL || screen_main_state.indicator == NULL) return;
 
-    uint8_t temp_raw;
-    // �?�?c 1 byte từ thanh ghi OUT_TEMP (0x26)[cite: 35, 41]
-    GYRO_IO_Read(&temp_raw, 0x26, 1);
-
-    // Ép kiểu v�? số nguyên có dấu 8-bit[cite: 41]
-    int8_t temp_c = (int8_t)temp_raw;
-
-    // Cộng thêm offset (giả sử khoảng 40 để v�? nhiệt độ phòng chuẩn)
-    int32_t display_temp = temp_c + 40;
-
-    // Ràng buộc giá trị nằm trong thang đo của Meter (0 đến 200)
-    if (display_temp < 0) display_temp = 0;
-    if (display_temp > 200) display_temp = 200;
-
-    // Cập nhật giá trị kim lên giao diện
-    lv_meter_set_indicator_value(my_meter_obj, screen_main_state.indicator, display_temp);
-}
-
-
-extern lv_obj_t * my_signal_chart;
-extern lv_chart_series_t * my_signal_series;
-
-static void signal_wave_timer_cb(lv_timer_t * timer)
-{
-//	printf("Chart timer tick!\r\n");
-	// �?ặt độ dày đư�?ng vẽ thành 2 pixel
-	lv_obj_set_style_line_width(my_signal_chart, 1, LV_PART_ITEMS);
-
-//	 �?ặt kích thước điểm nút tròn (bán kính 2 pixel) để dễ nhìn
-	lv_obj_set_style_size(my_signal_chart, 2, LV_PART_INDICATOR);
-    if (my_signal_chart == NULL || my_signal_series == NULL)
-    {
-    	printf("my_signal_chart is NULL!\r\n");
-    return;
-    }
-
-    static float phase = 0.0f;
-    phase += 0.35f; // Tốc độ biến thiên của sóng
-    if (phase > 6.283f) {
-        phase -= 6.283f;
-    }
-
-    // Tạo sóng sin có giá trị trung bình 50, biên độ dao động ±30, kèm nhiễu ngẫu nhiên ±5
-    int32_t simulated_val = (int32_t)(50.0f + 30.0f * sinf(phase)) + ((rand() % 11) - 5);
-
-    // Kẹp giá trị trong dải thang đo 0 - 100
-    if (simulated_val < 0) simulated_val = 0;
-    if (simulated_val > 100) simulated_val = 100;
-//    printf("Value wave: 0%X02\r\n",simulated_val);
-    // �?ẩy giá trị mới vào chart
-    lv_chart_set_next_value(my_signal_chart, my_signal_series, simulated_val);
-//    lv_chart_refresh(my_signal_chart);
-}
-extern lv_obj_t * signal_label_obj;
-
-static void signal_simulator_cb(lv_timer_t * timer)
-{
-    if (signal_label_obj == NULL) return;
-
-    // Giả lập mức tín hiệu dao động từ 75% đến 99%
-    static int32_t signal_strength = 80;
-    int delta = (rand() % 7) - 3; // Dao động -3 đến +3
-    signal_strength += delta;
-
-    if (signal_strength > 100) signal_strength = 100;
-    if (signal_strength < 40) signal_strength = 40;
-
-    // Cập nhật lên màn hình LCD
-    lv_label_set_text_fmt(signal_label_obj, "Sig: %d%%", signal_strength);
-}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -655,40 +671,19 @@ static void signal_simulator_cb(lv_timer_t * timer)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	  ST7789_FillScreen(BLACK);
+	osThreadFlagsWait(INIT_FLAG_START, osFlagsWaitAny, osWaitForever);
+	printf("Task default is begin\r\n");
+	printf("Start program!!\r\n");
+//	PrintTaskMemoryUsage();
+  /* USER CODE END 2 */
 
-//	   2. Khởi tạo LVGL và Display/Touch Driver
-	  lv_init();
-	  lv_port_disp_init();
-	  lv_port_indev_init();
-
-//	   3. Khởi tạo giao diện từ EEZ Studio
-	  ui_init();
-
-	  lv_timer_create(signal_simulator_cb, 100, NULL);
-	  lv_timer_create(signal_wave_timer_cb, 10, NULL);
-	  printf("Start program!!\r\n");
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
 
   /* Infinite loop */
   for(;;)
   {
-	 lv_timer_handler(); // Xử lý các tác vụ đồ h�?a LVGL
-	 ui_tick();          // Xử lý các biến và sự kiện nội tại của EEZ Studio
-	 osDelay(5);         // Như�?ng CPU cho các task khác (5ms - 10ms)
-
-//	  L3GD20_ReadXYZAngRate(gyro_data);
-//	  uint8_t temp = L3GD20_ReadTemp();
-//	  uint8_t status_data = L3GD20_GetDataStatus();
-//
-//	  printf("Temperature : 0x%02X\r\n", temp);
-//	  printf("Status 0X27 : 0x%02X\r\n", status_data);
-//
-//	   GYRO_IO_Read(&ctrl_reg2, L3GD20_CTRL_REG2_ADDR, 1);
-//	   printf("CTRL_REG2_ADDR: 0x%02X\r\n", ctrl_reg2);
-//	  // In ra Serial Terminal
-//	  printf("X: %.2f Y: %.2f Z: %.2f (dps)\r\n", gyro_data[0]/1000.0, gyro_data[1]/1000.0, gyro_data[2]/1000.0);
-//
-//	  HAL_Delay(500);
+	  osDelay(1);
   }
   /* USER CODE END 5 */
 }

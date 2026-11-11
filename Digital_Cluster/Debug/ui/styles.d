@@ -1,6 +1,6 @@
 ui/styles.o: \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/styles.c \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/styles.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/styles.c \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/styles.h \
  ../Middlewares/Third_Party/lvgl/lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h \
  ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h \
@@ -227,11 +227,11 @@ ui/styles.o: \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/images.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/fonts.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.h \
- C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.h
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/styles.h:
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/images.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.h \
+ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/styles.h:
 ../Middlewares/Third_Party/lvgl/lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/misc/lv_log.h:
 ../Middlewares/Third_Party/lvgl/src/misc/../lv_conf_internal.h:
@@ -458,7 +458,7 @@ C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h:
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h:
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/images.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/fonts.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/ui.h:
-C:/Users/admin/STM32CubeIDE/workspace_1.16.0/Digital_Cluster/Digital_Cluster/src/ui/screens.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/images.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.h:
+E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h:

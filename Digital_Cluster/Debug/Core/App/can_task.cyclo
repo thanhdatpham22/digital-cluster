@@ -1,0 +1,3 @@
+../Core/App/can_task.c:29:6:Can_Handler	1
+../Core/App/can_task.c:55:13:Init_CanAutosar	1
+../Core/App/can_task.c:74:6:Cluster_CanRxIndication	5

@@ -52,6 +52,22 @@
 
 /* USER CODE END FunctionPrototypes */
 
+/* Hook prototypes */
+void vApplicationStackOverflowHook(xTaskHandle xTask, signed char *pcTaskName);
+
+/* USER CODE BEGIN 4 */
+void vApplicationStackOverflowHook(xTaskHandle xTask, signed char *pcTaskName)
+{
+  // Bị tràn stack ở task pcTaskName!
+	printf("ERROR: Tran Stack tai Task [%s]!\r\n", pcTaskName);
+	__disable_irq();
+	while (1); // Dừng lại để debug bằng breakpoint
+   /* Run time stack overflow checking is performed if
+   configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is
+   called if a stack overflow is detected. */
+}
+/* USER CODE END 4 */
+
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 

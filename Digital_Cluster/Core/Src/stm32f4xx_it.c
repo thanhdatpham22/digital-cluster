@@ -52,10 +52,35 @@
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+volatile uint32_t fault_r0;
+volatile uint32_t fault_r1;
+volatile uint32_t fault_r2;
+volatile uint32_t fault_r3;
+volatile uint32_t fault_r12;
+volatile uint32_t fault_lr;
+volatile uint32_t fault_pc;
+volatile uint32_t fault_psr;
+volatile uint32_t fault_cfsr;
+volatile uint32_t fault_hfsr;
 
+void prvGetRegistersFromStack(uint32_t *pulFaultStackAddress)
+{
+  fault_r0  = pulFaultStackAddress[0];
+  fault_r1  = pulFaultStackAddress[1];
+  fault_r2  = pulFaultStackAddress[2];
+  fault_r3  = pulFaultStackAddress[3];
+  fault_r12 = pulFaultStackAddress[4];
+  fault_lr  = pulFaultStackAddress[5];
+  fault_pc  = pulFaultStackAddress[6];
+  fault_psr = pulFaultStackAddress[7];
+  fault_cfsr = SCB->CFSR;
+  fault_hfsr = SCB->HFSR;
+  while (1);
+}
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern CAN_HandleTypeDef hcan1;
 extern RNG_HandleTypeDef hrng;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern SPI_HandleTypeDef hspi3;
@@ -91,7 +116,13 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-
+  __asm volatile(
+    " tst lr, #4 \n"
+    " ite eq \n"
+    " mrseq r0, msp \n"
+    " mrsne r0, psp \n"
+    " b prvGetRegistersFromStack \n"
+  );
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
@@ -164,6 +195,62 @@ void DebugMon_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles CAN1 TX interrupts.
+  */
+void CAN1_TX_IRQHandler(void)
+{
+  /* USER CODE BEGIN CAN1_TX_IRQn 0 */
+
+  /* USER CODE END CAN1_TX_IRQn 0 */
+  HAL_CAN_IRQHandler(&hcan1);
+  /* USER CODE BEGIN CAN1_TX_IRQn 1 */
+
+  /* USER CODE END CAN1_TX_IRQn 1 */
+}
+
+/**
+  * @brief This function handles CAN1 RX0 interrupts.
+  */
+void CAN1_RX0_IRQHandler(void)
+{
+  /* USER CODE BEGIN CAN1_RX0_IRQn 0 */
+
+  /* USER CODE END CAN1_RX0_IRQn 0 */
+  HAL_CAN_IRQHandler(&hcan1);
+  /* USER CODE BEGIN CAN1_RX0_IRQn 1 */
+
+  /* USER CODE END CAN1_RX0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles CAN1 RX1 interrupt.
+  */
+void CAN1_RX1_IRQHandler(void)
+{
+  /* USER CODE BEGIN CAN1_RX1_IRQn 0 */
+
+  /* USER CODE END CAN1_RX1_IRQn 0 */
+  HAL_CAN_IRQHandler(&hcan1);
+  /* USER CODE BEGIN CAN1_RX1_IRQn 1 */
+
+  /* USER CODE END CAN1_RX1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles CAN1 SCE interrupt.
+  */
+void CAN1_SCE_IRQHandler(void)
+{
+  /* USER CODE BEGIN CAN1_SCE_IRQn 0 */
+
+  /* USER CODE END CAN1_SCE_IRQn 0 */
+  HAL_CAN_IRQHandler(&hcan1);
+  /* USER CODE BEGIN CAN1_SCE_IRQn 1 */
+
+  /* USER CODE END CAN1_SCE_IRQn 1 */
+}
 
 /**
   * @brief This function handles USART1 global interrupt.
