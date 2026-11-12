@@ -48,6 +48,7 @@ MEMORY
   CCMRAM    (xrw)    : ORIGIN = 0x10000000,   LENGTH = 64K
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 192K
   FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 2048K
+  SDRAM (rx)	: ORIGIN = 0xD0000000, LENGTH = 8M
 }
 
 /* Sections */
@@ -166,7 +167,14 @@ SECTIONS
     . = ALIGN(4);
     _eccmram = .;       /* create a global symbol at ccmram end */
   } >CCMRAM AT> RAM
-
+  /* SDRAM */
+  .sdram_section (NOLOAD):
+  {
+    . = ALIGN(4);
+    *(.buffer)
+    *(.buffer*)
+    . = ALIGN(4);
+  } >SDRAM
   /* Uninitialized data section into "RAM" Ram type memory */
   . = ALIGN(4);
   .bss :

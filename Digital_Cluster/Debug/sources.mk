@@ -23,12 +23,13 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Core/App \
-Core/Device_Driver/CAN_TJA1050/Can \
-Core/Device_Driver/CAN_TJA1050/CanIf \
-Core/Device_Driver/CAN_TJA1050/Det \
-Core/Device_Driver/CAN_TJA1050/UDS_Protocol \
-Core/Device_Driver/CAN_TJA1050 \
-Core/Device_Driver/CAN_TJA1050/config \
+Core/Device_Driver/CAN_BSW/Can \
+Core/Device_Driver/CAN_BSW/CanIf \
+Core/Device_Driver/CAN_BSW/Det \
+Core/Device_Driver/CAN_BSW/UDS_Protocol \
+Core/Device_Driver/CAN_BSW \
+Core/Device_Driver/CAN_BSW/config \
+Core/Device_Driver/FMC_Driver \
 Core/Device_Driver/ILI9341 \
 Core/Device_Driver/L3GD20 \
 Core/Device_Driver/RTC \

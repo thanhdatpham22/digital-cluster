@@ -5,8 +5,9 @@
  *      Author: admin
  */
 #include "display_task.h"
-#include "../Device_Driver/CAN_TJA1050/UDS_Protocol/uds_protocol.h"
 #include "screens.h"
+
+#include "../Device_Driver/CAN_BSW/UDS_Protocol/uds_protocol.h"
 #include "../Device_Driver/RTC/rtc_driver.h"
 
 /**
@@ -77,6 +78,7 @@ static void Update_Cluster_From_CAN(void)
 
 void Display_Handler(void *argument)
 {
+	osThreadFlagsWait(INIT_FLAG_START, osFlagsWaitAny, osWaitForever);
     printf("Display_Handler: Starting hardware init...\r\n");
 
     ST7789_Init(); // Init driver of Display

@@ -15,8 +15,9 @@
 #include "Handler_task.h"
 #include "ui.h"
 /* AUTOSAR CAN Stack Headers */
-#include "../Device_Driver/CAN_TJA1050/Can/Can.h"
-#include "../Device_Driver/CAN_TJA1050/CanIf/CanIf.h"
+
+#include "../Device_Driver/CAN_BSW/Can/Can.h"
+#include "../Device_Driver/CAN_BSW/CanIf/CanIf.h"
 
 
 

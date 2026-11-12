@@ -266,9 +266,10 @@ Core/App/display_task.o: ../Core/App/display_task.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
@@ -277,22 +278,26 @@ Core/App/display_task.o: ../Core/App/display_task.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h \
  ../Core/App/../Device_Driver/ST7789/ST7789_STM32_Driver.h \
- ../Core/App/../Device_Driver/CAN_TJA1050/UDS_Protocol/uds_protocol.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/ComStack_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Std_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Platform_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler_Cfg.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/config/Can_Cfg.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_SpecialPdus.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h \
  E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/uds_protocol.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/CanIf.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/Std_Types.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler_Cfg.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Platform_Types.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Types.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/../../CAN_BSW/shared/ComStack_Types.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/../../CAN_BSW/Can/Can_GeneralTypes.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/../../CAN_BSW/config/Can_Cfg.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/config/Can_Cfg.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_SpecialPdus.h \
+ ../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h \
  ../Core/App/../Device_Driver/RTC/rtc_driver.h ../Core/Inc/main.h
 ../Core/App/display_task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
@@ -562,9 +567,10 @@ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/scr
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
@@ -573,21 +579,25 @@ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/scr
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fonts.h:
 ../Core/App/../Device_Driver/ST7789/ST7789_STM32_Driver.h:
-../Core/App/../Device_Driver/CAN_TJA1050/UDS_Protocol/uds_protocol.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/ComStack_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Std_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Platform_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler_Cfg.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/config/Can_Cfg.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_SpecialPdus.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h:
 E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/uds_protocol.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/CanIf.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/Std_Types.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler_Cfg.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Platform_Types.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Types.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/../../CAN_BSW/shared/ComStack_Types.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/../../CAN_BSW/Can/Can_GeneralTypes.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/../../CAN_BSW/config/Can_Cfg.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/config/Can_Cfg.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_SpecialPdus.h:
+../Core/App/../Device_Driver/CAN_BSW/UDS_Protocol/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h:
 ../Core/App/../Device_Driver/RTC/rtc_driver.h:
 ../Core/Inc/main.h:

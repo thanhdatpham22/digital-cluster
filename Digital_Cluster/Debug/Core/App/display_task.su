@@ -1,2 +1,2 @@
-../Core/App/display_task.c:16:13:Update_Cluster_From_CAN	24	static
-../Core/App/display_task.c:78:6:Display_Handler	16	static
+../Core/App/display_task.c:17:13:Update_Cluster_From_CAN	24	static
+../Core/App/display_task.c:79:6:Display_Handler	16	static

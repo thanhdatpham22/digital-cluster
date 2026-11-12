@@ -1,2 +1,0 @@
-../Core/Device_Driver/CAN_TJA1050/UDS_Protocol/uds_protocol.c:21:6:Decode_SpeedRpm	16	static
-../Core/Device_Driver/CAN_TJA1050/UDS_Protocol/uds_protocol.c:40:6:Decode_BodyStatus	16	static

@@ -1,5 +1,20 @@
-# Environment variables
-.o
+# Build directories
+Debug/
+Release/
 
+# Compiled Object files & Dependencies
+*.o
+*.d
+*.su
+*.cyclo
 
+# Executables & Binaries
+*.elf
+*.bin
+*.hex
+*.map
+*.list
 
+# STM32CubeIDE temporary / local files
+.metadata/
+*.launch

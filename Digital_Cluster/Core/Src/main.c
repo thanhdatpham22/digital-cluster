@@ -26,6 +26,7 @@
 #include "../Device_Driver/lvgl_port_disp.h"
 #include "../Device_Driver/ST7789/ST7789_GFX.h"
 #include "../Device_Driver/ST7789/ST7789_STM32_Driver.h"
+#include "../Device_Driver/FMC_Driver/fmc_driver.h"
 #include "../App/Handler_task.h"
 #include "ui.h"
 #include "task.h"
@@ -47,13 +48,11 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+EXTERNAL_SDRAM uint32_t count_externalram;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 CAN_HandleTypeDef hcan1;
-
-RNG_HandleTypeDef hrng;
 
 RTC_HandleTypeDef hrtc;
 
@@ -64,11 +63,13 @@ DMA_HandleTypeDef hdma_spi1_tx;
 
 UART_HandleTypeDef huart1;
 
+SDRAM_HandleTypeDef hsdram1;
+
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for cantask */
@@ -110,10 +111,10 @@ static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_RTC_Init(void);
-static void MX_RNG_Init(void);
 static void MX_SPI3_Init(void);
 static void MX_SPI5_Init(void);
 static void MX_CAN1_Init(void);
+static void MX_FMC_Init(void);
 void StartDefaultTask(void *argument);
 extern void Can_Handler(void *argument);
 extern void Display_Handler(void *argument);
@@ -172,12 +173,12 @@ int main(void)
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   MX_RTC_Init();
-  MX_RNG_Init();
   MX_SPI3_Init();
   MX_SPI5_Init();
   MX_CAN1_Init();
+  MX_FMC_Init();
   /* USER CODE BEGIN 2 */
-
+  FMC_Config();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -329,32 +330,6 @@ static void MX_CAN1_Init(void)
   /* USER CODE BEGIN CAN1_Init 2 */
 
   /* USER CODE END CAN1_Init 2 */
-
-}
-
-/**
-  * @brief RNG Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_RNG_Init(void)
-{
-
-  /* USER CODE BEGIN RNG_Init 0 */
-
-  /* USER CODE END RNG_Init 0 */
-
-  /* USER CODE BEGIN RNG_Init 1 */
-
-  /* USER CODE END RNG_Init 1 */
-  hrng.Instance = RNG;
-  if (HAL_RNG_Init(&hrng) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN RNG_Init 2 */
-
-  /* USER CODE END RNG_Init 2 */
 
 }
 
@@ -584,6 +559,53 @@ static void MX_DMA_Init(void)
 
 }
 
+/* FMC initialization function */
+static void MX_FMC_Init(void)
+{
+
+  /* USER CODE BEGIN FMC_Init 0 */
+
+  /* USER CODE END FMC_Init 0 */
+
+  FMC_SDRAM_TimingTypeDef SdramTiming = {0};
+
+  /* USER CODE BEGIN FMC_Init 1 */
+
+  /* USER CODE END FMC_Init 1 */
+
+  /** Perform the SDRAM1 memory initialization sequence
+  */
+  hsdram1.Instance = FMC_SDRAM_DEVICE;
+  /* hsdram1.Init */
+  hsdram1.Init.SDBank = FMC_SDRAM_BANK2;
+  hsdram1.Init.ColumnBitsNumber = FMC_SDRAM_COLUMN_BITS_NUM_8;
+  hsdram1.Init.RowBitsNumber = FMC_SDRAM_ROW_BITS_NUM_12;
+  hsdram1.Init.MemoryDataWidth = FMC_SDRAM_MEM_BUS_WIDTH_16;
+  hsdram1.Init.InternalBankNumber = FMC_SDRAM_INTERN_BANKS_NUM_4;
+  hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_2;
+  hsdram1.Init.WriteProtection = FMC_SDRAM_WRITE_PROTECTION_DISABLE;
+  hsdram1.Init.SDClockPeriod = FMC_SDRAM_CLOCK_PERIOD_2;
+  hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
+  hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_0;
+  /* SdramTiming */
+  SdramTiming.LoadToActiveDelay = 2;
+  SdramTiming.ExitSelfRefreshDelay = 7;
+  SdramTiming.SelfRefreshTime = 5;
+  SdramTiming.RowCycleDelay = 6;
+  SdramTiming.WriteRecoveryTime = 3;
+  SdramTiming.RPDelay = 2;
+  SdramTiming.RCDDelay = 2;
+
+  if (HAL_SDRAM_Init(&hsdram1, &SdramTiming) != HAL_OK)
+  {
+    Error_Handler( );
+  }
+
+  /* USER CODE BEGIN FMC_Init 2 */
+
+  /* USER CODE END FMC_Init 2 */
+}
+
 /**
   * @brief GPIO Initialization Function
   * @param None
@@ -602,6 +624,8 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, L3DG20_CS_Pin|GPIO_PIN_2, GPIO_PIN_RESET);
@@ -671,10 +695,12 @@ int __io_putchar(int ch) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	osThreadFlagsWait(INIT_FLAG_START, osFlagsWaitAny, osWaitForever);
+//	osThreadFlagsWait(INIT_FLAG_START, osFlagsWaitAny, osWaitForever);
 	printf("Task default is begin\r\n");
 	printf("Start program!!\r\n");
 //	PrintTaskMemoryUsage();
+	count_externalram = 0;
+	osThreadFlagsSet(displaytaskHandle, INIT_FLAG_START);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -683,7 +709,9 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  osDelay(1);
+	  count_externalram++;
+	  printf("Counter SDRAM: %ld \r\n", count_externalram);
+	  osDelay(500);
   }
   /* USER CODE END 5 */
 }

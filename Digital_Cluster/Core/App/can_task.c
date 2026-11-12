@@ -6,7 +6,8 @@
  *      Author: admin
  */
 #include "can_task.h"
-#include "../Device_Driver/CAN_TJA1050/UDS_Protocol/uds_protocol.h"
+
+#include "../Device_Driver/CAN_BSW/UDS_Protocol/uds_protocol.h"
 /* Biến toàn cục lưu trữ trạng thái xe (sau này có thể cập nhật qua Queue) */
 
 /* Bảng con trỏ hàm trực tiếp theo Index của RxPduId */

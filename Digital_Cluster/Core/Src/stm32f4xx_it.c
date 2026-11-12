@@ -81,7 +81,7 @@ void prvGetRegistersFromStack(uint32_t *pulFaultStackAddress)
 
 /* External variables --------------------------------------------------------*/
 extern CAN_HandleTypeDef hcan1;
-extern RNG_HandleTypeDef hrng;
+extern SDRAM_HandleTypeDef hsdram1;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern SPI_HandleTypeDef hspi3;
 extern SPI_HandleTypeDef hspi5;
@@ -267,6 +267,20 @@ void USART1_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles FMC global interrupt.
+  */
+void FMC_IRQHandler(void)
+{
+  /* USER CODE BEGIN FMC_IRQn 0 */
+
+  /* USER CODE END FMC_IRQn 0 */
+  HAL_SDRAM_IRQHandler(&hsdram1);
+  /* USER CODE BEGIN FMC_IRQn 1 */
+
+  /* USER CODE END FMC_IRQn 1 */
+}
+
+/**
   * @brief This function handles SPI3 global interrupt.
   */
 void SPI3_IRQHandler(void)
@@ -306,20 +320,6 @@ void DMA2_Stream3_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Stream3_IRQn 1 */
 
   /* USER CODE END DMA2_Stream3_IRQn 1 */
-}
-
-/**
-  * @brief This function handles HASH and RNG global interrupts.
-  */
-void HASH_RNG_IRQHandler(void)
-{
-  /* USER CODE BEGIN HASH_RNG_IRQn 0 */
-
-  /* USER CODE END HASH_RNG_IRQn 0 */
-  HAL_RNG_IRQHandler(&hrng);
-  /* USER CODE BEGIN HASH_RNG_IRQn 1 */
-
-  /* USER CODE END HASH_RNG_IRQn 1 */
 }
 
 /**

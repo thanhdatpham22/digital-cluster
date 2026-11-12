@@ -1,3 +1,0 @@
-../Core/Device_Driver/CAN_TJA1050/Det/Det.c:4:6:Det_Init	4	static
-../Core/Device_Driver/CAN_TJA1050/Det/Det.c:9:6:Det_DeInit	4	static
-../Core/Device_Driver/CAN_TJA1050/Det/Det.c:14:6:Det_ReportError	16	static

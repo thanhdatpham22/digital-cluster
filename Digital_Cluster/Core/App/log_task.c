@@ -10,7 +10,7 @@ void Log_Handler(void *argument)
 {
 	osThreadFlagsWait(INIT_FLAG_START, osFlagsWaitAny, osWaitForever);
 	printf("Log Task is began\r\n");
-	osThreadFlagsSet(defaultTaskHandle, INIT_FLAG_START);
+//	osThreadFlagsSet(defaultTaskHandle, INIT_FLAG_START);
 	for(;;)
 	{
 		osDelay(1);

@@ -23,9 +23,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
@@ -273,6 +274,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h \
  ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h \
  ../Core/Src/../Device_Driver/ST7789/ST7789_STM32_Driver.h \
+ ../Core/Src/../Device_Driver/FMC_Driver/fmc_driver.h \
  ../Core/Src/../App/Handler_task.h \
  E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.h \
  E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h \
@@ -282,21 +284,25 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Src/../App/../Device_Driver/ST7789/ST7789_GFX.h \
  ../Core/Src/../App/../Device_Driver/ST7789/ST7789_STM32_Driver.h \
  ../Core/Src/../App/can_task.h \
- ../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/ComStack_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Std_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Platform_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler_Cfg.h \
- ../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/config/Can_Cfg.h \
- ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h \
- ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Types.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h \
- ../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can.h \
- ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_SpecialPdus.h \
- ../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/Can.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/ComStack_Types.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/Std_Types.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler_Cfg.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Platform_Types.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/Can/Can_GeneralTypes.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/config/Can_Cfg.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/CanIf.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Types.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/config/Can_Cfg.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_SpecialPdus.h \
+ ../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -322,9 +328,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
@@ -572,6 +579,7 @@ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/fon
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/lv_span.h:
 ../Middlewares/Third_Party/lvgl/src/extra/widgets/span/../../../lvgl.h:
 ../Core/Src/../Device_Driver/ST7789/ST7789_STM32_Driver.h:
+../Core/Src/../Device_Driver/FMC_Driver/fmc_driver.h:
 ../Core/Src/../App/Handler_task.h:
 E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/ui.h:
 E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/screens.h:
@@ -582,18 +590,22 @@ E:/Personal_Documents/digital-cluster/Digital_Cluster/Digital_Cluster/src/ui/scr
 ../Core/Src/../App/../Device_Driver/ST7789/ST7789_GFX.h:
 ../Core/Src/../App/../Device_Driver/ST7789/ST7789_STM32_Driver.h:
 ../Core/Src/../App/can_task.h:
-../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/ComStack_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Std_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Platform_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/shared/Compiler_Cfg.h:
-../Core/Src/../App/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/config/Can_Cfg.h:
-../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can_GeneralTypes.h:
-../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Types.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h:
-../Core/Inc/../Device_Driver/CAN_TJA1050/Can/Can.h:
-../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_SpecialPdus.h:
-../Core/Src/../App/../Device_Driver/CAN_TJA1050/CanIf/CanIf_Cfg.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/Can.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/ComStack_Types.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/Std_Types.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Compiler_Cfg.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/shared/../../CAN_BSW/shared/../../CAN_BSW/shared/Platform_Types.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/Can/Can_GeneralTypes.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/Can/../../CAN_BSW/config/Can_Cfg.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/CanIf.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Types.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can_GeneralTypes.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/shared/ComStack_Types.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/Can/Can.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/../../CAN_BSW/config/Can_Cfg.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_SpecialPdus.h:
+../Core/Src/../App/../Device_Driver/CAN_BSW/CanIf/../../CAN_BSW/CanIf/CanIf_Cfg.h:
